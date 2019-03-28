@@ -1,0 +1,47 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>RegisterUser</servlet-name>
+    <servlet-class>web.RegisterUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterUser</servlet-name>
+    <url-pattern>/newacct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>LoginUser</servlet-name>
+    <servlet-class>web.UserAuthentication</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginUser</servlet-name>
+    <url-pattern>/goInside</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserAccess</servlet-name>
+    <servlet-class>web.UserAccess</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserAccess</servlet-name>
+    <url-pattern>/afterLogin/setAccess</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowUsers</servlet-name>
+    <servlet-class>web.ShowUsers</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowUsers</servlet-name>
+    <url-pattern>/afterLogin/showuseres</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>MainFilter</filter-name>
+    <filter-class>web.filters.MainFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>MainFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+</web-app>
