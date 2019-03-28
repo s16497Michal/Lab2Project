@@ -21,6 +21,6 @@ public class LoginUser extends HttpServlet {
         String authenticatedPass = req.getParameter("pass");
         System.out.println(authenticatedUsername+ " " + authenticatedPass);
 
-        req.getRequestDispatcher("/welcome_new.jsp").forward(req, resp);
+        req.getRequestDispatcher("/afterLogin/welcome_new.jsp").forward(req, resp);
     }
 }
