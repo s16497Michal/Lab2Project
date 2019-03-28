@@ -25,8 +25,9 @@ public class RegisterUser extends HttpServlet {
         }
         User user = registerMe(req);
         UsersRepository repository = new ImplementedUserRepo();
-
+        user.setAdminAccess(true);
         repository.addUser(user);
+        SessionRegistry.sessionRegistry.put(session.getId(), user);
         if (user.isAdminAccess())
             resp.sendRedirect("afterLogin/welcome_new_adm.jsp");
         else

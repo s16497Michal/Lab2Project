@@ -12,6 +12,6 @@
 </head>
 <body>
     <h1>Witaj użytkowniku!</h1><br/>
-    <input type="submit" value="Strona dla uzytkownika premium">
+    <input type="button" onclick="location.href='afterLogin/welcome_new_premium.jsp';" value="Przejdz do premium" />
 </body>
 </html>
