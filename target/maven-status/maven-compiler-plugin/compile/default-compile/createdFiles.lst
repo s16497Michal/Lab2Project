@@ -1,9 +1,7 @@
 web\RegisterUser.class
 repository\ImplementedUserRepo.class
 web\ShowUsers.class
-web\SessionRegistry.class
-repository\UsersRepository.class
 web\UserAccess.class
-web\filters\MainFilter.class
+web\PremiumAccessPage.class
 model\User.class
 web\UserAuthentication.class

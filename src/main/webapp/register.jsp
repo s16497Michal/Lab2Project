@@ -13,10 +13,10 @@
 <body>
 <h1>Rejstracja</h1><br/>
 <form action="newacct" method="post">
-    <label>Nazwa użytkownika: <input type="text" id="username" name="username" value="michu"></label><br/>
-    <label>Hasło: <input type="password" id="pass" name="pass" value="michu"></label><br/>
-    <label>Potwierdź hasło: <input type="password" id="confrimPass" name="confrimPass" value="michu"></label><br/>
-    <label>Email: <input type="text" id="email" name="email" value="michu@michu.com"></label><br/>
+    <label>Nazwa użytkownika: <input type="text" id="username" name="username"></label><br/>
+    <label>Hasło: <input type="password" id="pass" name="pass"></label><br/>
+    <label>Potwierdź hasło: <input type="password" id="confrimPass" name="confrimPass"></label><br/>
+    <label>Email: <input type="text" id="email" name="email"></label><br/>
     <label><input type="submit" value="Zarejstruj się"></label><br/>
 </form>
 </body>

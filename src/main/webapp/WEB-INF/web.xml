@@ -36,12 +36,12 @@
     <servlet-name>ShowUsers</servlet-name>
     <url-pattern>/afterLogin/showuseres</url-pattern>
   </servlet-mapping>
-  <filter>
-    <filter-name>MainFilter</filter-name>
-    <filter-class>web.filters.MainFilter</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>MainFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
+  <servlet>
+    <servlet-name>PremiumAccessPage</servlet-name>
+    <servlet-class>web.PremiumAccessPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PremiumAccessPage</servlet-name>
+    <url-pattern>/afterLogin/go-to-premium</url-pattern>
+  </servlet-mapping>
 </web-app>

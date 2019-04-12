@@ -4,8 +4,8 @@ public class User {
     private String username;
     private String password;
     private String email;
-    private boolean premium;
-    private boolean adminAccess;
+    private Boolean premium = Boolean.FALSE;
+    private Boolean adminAccess;
 
     public String getUsername() {
         return username;
@@ -31,7 +31,7 @@ public class User {
         this.email = email;
     }
 
-    public boolean isPremium() {
+    public Boolean isPremium() {
         return premium;
     }
 
@@ -39,7 +39,7 @@ public class User {
         this.premium = premium;
     }
 
-    public boolean isAdminAccess() {
+    public Boolean isAdminAccess() {
         return adminAccess;
     }
 

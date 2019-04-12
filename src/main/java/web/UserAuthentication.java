@@ -1,8 +1,6 @@
 package web;
 
-import model.User;
 import repository.ImplementedUserRepo;
-import repository.UsersRepository;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,16 +13,20 @@ public class UserAuthentication extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        UsersRepository repository = new ImplementedUserRepo();
-        boolean isPremium = repository.checkPremiumAccess(req.getParameter("username"));
-        final String authenticatedUsername = req.getParameter("username");
+        boolean isPremium = ImplementedUserRepo.checkPremiumAccess(req.getParameter("username"));
+        String authenticatedUsername = req.getParameter("username");
         String authenticatedPass = req.getParameter("pass");
-        System.out.println(authenticatedUsername+ " " + authenticatedPass);
-        resp.addCookie(new Cookie("SESSION", session.getId()));
-        final User currentUser = new User();
-        currentUser.setUsername(authenticatedUsername);
-        SessionRegistry.sessionRegistry.put(session.getId(), currentUser);
-        req.getRequestDispatcher("/afterLogin/welcome_new.jsp").forward(req, resp);
+        boolean canLogin = ImplementedUserRepo.showUseres(authenticatedUsername, authenticatedPass);
+        if (ImplementedUserRepo.showUseres(authenticatedUsername, authenticatedPass)) {
+            HttpSession session = req.getSession();
+            session.setAttribute("user", authenticatedUsername);
+            session.setAttribute("premium", ImplementedUserRepo.checkPremiumAccess(authenticatedUsername));
+            if (ImplementedUserRepo.checkPremiumAccess(authenticatedUsername))
+                resp.sendRedirect("afterLogin/welcome_new_premium.jsp");
+            else
+                req.getRequestDispatcher("/afterLogin/welcome_new.jsp").forward(req, resp);
+        } else
+            resp.sendRedirect("");
+
     }
 }

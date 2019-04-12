@@ -13,8 +13,8 @@
 <body>
 <h1>Logowanie</h1><br/>
 <form action="goInside" method="post">
-    <label>Nazwa użytkownika<input type="text" name="username" id="username" value="michu"></label><br/>
-    <label>Hasło<input type="password" name="pass" id="pass" value="michu"></label><br/>
+    <label>Nazwa użytkownika<input type="text" name="username" id="username"></label><br/>
+    <label>Hasło<input type="password" name="pass" id="pass"></label><br/>
     <label><input type="submit" value="Zaloguj się"></label><br/>
 </form>
 </body>

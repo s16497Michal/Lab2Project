@@ -5,9 +5,9 @@ import model.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImplementedUserRepo implements UsersRepository {
+public class ImplementedUserRepo {
     private static List<User> db = new ArrayList<User>();
-    public User getUserByUsername(String username) {
+    public static User getUserByUsername(String username) {
         for (User user : db) {
             if (user.getEmail().equalsIgnoreCase(username))
                 return user;
@@ -15,46 +15,43 @@ public class ImplementedUserRepo implements UsersRepository {
         return null;
     }
 
-    public void addUser(User user) {
+    public static void addUser(User user) {
         db.add(user);
     }
 
-    public void setPremiumAccess(String username) {
+    public static void setPremiumAccess(String username) {
         for (User user : db) {
             if (user.getUsername().equals(username)) {
                 if (user.isPremium()) {
-                    user.setPremium(false);
+                    user.setPremium(Boolean.FALSE);
                 } else
-                    user.setPremium(true);
+                    user.setPremium(Boolean.TRUE);
             }
         }
     }
 
-    public boolean showUseres(String username, String pass) {
+    public static boolean showUseres(String username, String pass) {
         boolean isLogin = false;
         for (User user : db) {
-            if (user.getUsername().equals(username) && user.getPassword().equals(pass))
-                isLogin = true;
-            else
-                isLogin = false;
+            isLogin = user.getUsername().equals(username) && user.getPassword().equals(pass);
         }
         return isLogin;
     }
 
-    public Boolean checkPremiumAccess(String username) {
-        boolean isPremeiumAccess = false;
+    public static Boolean checkPremiumAccess(String username) {
+        Boolean isPremeiumAccess = Boolean.FALSE;
         for (User user : db) {
             if (user.getUsername().equals(username)) {
                 if (user.isPremium())
-                    isPremeiumAccess = true;
+                    isPremeiumAccess = Boolean.TRUE;
                 else
-                    isPremeiumAccess = false;
+                    isPremeiumAccess = Boolean.FALSE;
             }
         }
         return isPremeiumAccess;
     }
 
-    public List getUsers() {
+    public static List getUsers() {
         List<User> list = new ArrayList<User>();
         List<String> users = new ArrayList<String>();
         for (User user : db)
@@ -68,7 +65,7 @@ public class ImplementedUserRepo implements UsersRepository {
         return users;
     }
 
-    public String getUser(String username) {
+    public static String getUser(String username) {
         for (User user : db) {
             if (user.getUsername().equals(username))
                 return user.getUsername();
@@ -76,7 +73,7 @@ public class ImplementedUserRepo implements UsersRepository {
         return null;
     }
 
-    public void checkAdminAccess(String username) {
+    public static void checkAdminAccess(String username) {
         for (User user : db) {
             if (user.getUsername().equals("admin"))
                 user.setAdminAccess(true);
